@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+
+.drop{
+    position: relative;
+    width: 100px;
+    height: 50px;
+    background-color: aqua;
+
+}
+.drop-down{
+
+    bottom: 20px;
+    left:110px;
+    display: none;
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    background-color: aqua;
+
+}
+
+.drop:hover .drop-down{
+    display: block;
+    cursor: pointer;
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+
+
+    <div class="drop">
+            <h1>Hello</h1>
+            <div class="drop-down" >
+              <h4>Hello</h4>
+            </div>
+
+
+    </div>
+
+</body>
+</html>
