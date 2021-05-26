@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+</head>
+<style>
+    #snakeboard {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+<body>
+    <h1 style="text-align: center;">My Snake Game</h1>
+    <canvas id="snakeboard" width="400" height="400"></canvas>
+    <script>
+        const snakeboard = document.getElementById('snakeboard');
+        const snakeboard_cxt = snakeboard.getContext("2d");
+        let snake = [{
+                x: 200,
+                y: 200
+            }, {
+                x: 190,
+                y: 200
+            }, {
+
+                x: 180,
+                y: 200
+            }, {
+
+                x: 170,
+                y: 200
+            }, {
+
+                x: 160,
+                y: 200
+            }
+
+        ];
+
+        let dx = 10;
+        let dy = 0;
+        const board_border = 'black';
+        const board_background = 'white';
+        const snake_border = 'darkblue';
+        const snake_col = 'lightblue'
+        main();
+
+        function main() {
+            setTimeout(function onTick() {
+                clearCanvas();
+                moveSnake();
+                drawSnake();
+                main();
+            }, 100);
+
+        }
+
+        function clearCanvas() {
+            snakeboard_cxt.fillStyle = board_background;
+            snakeboard_cxt.strokestyle = board_border;
+            snakeboard_cxt.fillRect(0, 0, snakeboard.width, snakeboard.height);
+            snakeboard_cxt.strokeRect(0, 0, snakeboard.width, snakeboard.height);
+        }
+
+        function drawSnake() {
+            snake.forEach(drawSnakePart);
+        }
+
+        function drawSnakePart(snakePart) {
+            snakeboard_cxt.fillStyle = snake_col;
+            snakeboard_cxt.strokestyle = snake_border;
+            snakeboard_cxt.fillRect(snakePart.x, snakePart.y, 10, 10);
+            snakeboard_cxt.strokeRect(snakePart.x, snakePart.y, 10, 10);
+        }
+
+        function moveSnake() {
+            const head = {
+                x: snake[0].x + dx,
+                y: snake[0].y + dy
+            };
+            snake.unshift(head);
+            snake.pop();
+
+        }
+    </script>
+
+
+
+</body>
+
+</html>
