@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+      
+<header>
+
+    <h1 class="p-5" style="text-align: center;">Rock Paper Scissor </h1>
+</header>
+<hr>
+<div class="container d-flex justify-content-between">
+
+<button onclick="user('r')" class="btn btn-primary">Rock</button>
+<button onclick="user('p')" class="btn btn-primary">Paper</button>
+<button onclick="user('s')" class="btn btn-primary">Scissor</button>
+</div>
+<hr>
+<div class="container">
+    <h1>User: <span id="uc"></span></h1>
+    <h1>Computer: <span id="cc"></span></h1>
+    <h1>Result: <span id="result"></span></h1>
+</div>
+<hr>
+
+
+
+    <script>
+
+        // console.log(Math.floor(Math.random()*3));
+        function computer(){
+            var a = ['r','p','s'];
+            var b = Math.floor(Math.random()*3);
+            return a[b];
+        }
+        function user(x){
+                document.getElementById('uc').innerHTML=x;
+                var c  =computer();
+                document.getElementById('cc').innerHTML=c;
+                switch(x+c){
+                    case 'rs':
+                    case 'pr':
+                    case 'sp':
+                        document.getElementById('result').innerHTML="User Won";
+                        break;
+                    case 'sr':
+                    case 'rp':
+                    case 'ps':
+                        document.getElementById('result').innerHTML="Computer Won";
+                        break;
+                    case 'rr':
+                    case 'pp':
+                    case 'ss':
+                        document.getElementById('result').innerHTML="Match Draw";
+                }
+        }
+
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
